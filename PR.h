@@ -8,14 +8,10 @@
 using namespace std;
 class PR {
     public:
-    vector<string> parties;
-    vector<int> votes;
     vector<int> sets;
     int total;
     priority_queue<pair<int, pair<string, int>>> pq;
     PR (vector<string>& p, vector<int>& v, char type, double threshold, int numSeats) {
-        parties = p;
-        votes = v;
         total = 0;
         pq.clear();
         sets.clear();
@@ -42,6 +38,9 @@ class PR {
                 Imperiali(numSeats);
             case 'a':
                 Apportion(numSeats);
+        }
+        for (int count = 0; count < sets.size(); count++) {
+            cout << p[count] << " " << v[count] << " " << sets[count] << endl;
         }
     }
     //highest averages
